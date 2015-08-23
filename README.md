@@ -15,8 +15,8 @@ setwd("..")
 ```
 Now we're ready to commence the different parts of the project.
 
-1. Merge the training and the test sets to create one data set.
-
+(1) Merge the training and the test sets to create one data set.
+------
 My interpretation of README.txt as provided indicates that the records are ordered for the provided Subjects data and associated Activity data. The first thing to do then is to add this data for the Training and Test data before we merge the sets.
 
 The data sets however do not have column names. These are located in 'features.txt'. So, we first load these into a data frame `dfFeatures` which we subsequently subset to get the right vector:
