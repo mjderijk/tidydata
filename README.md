@@ -1,14 +1,24 @@
 # Getting and Cleaning Data - Course Project
 This repo is for the "Getting and Cleaning Data" course project.
 It includes an R Script to produce a tidy data set, "tidy_data_set.txt".
-Also included is a codebook which describes the data.
+Also included is a codebook (codebook.md) which describes the data.
 
-To read and view the resultant tidy data set, you can use the following code:
+The data is a (wide) tidy data file[1], conforming to Hadley Wickham's definition[2], that:
+1. Each variable forms a column.
+2. Each observation forms a row.
+3. Each type of observational unit forms a table.
+
+[1] Source: https://class.coursera.org/getdata-031/forum/thread?thread_id=28#post-117
+[2] Source: http://www.jstatsoft.org/v59/i10/paper
+
+To read and view the resultant tidy data set, you can use the following code[3]:
 ```
-data <- read.table(file_path, header = TRUE)
+address <- "https://s3.amazonaws.com/coursera-uploads/user-551b7e54e333ca686e16f9e8/975115/asst-3/c586861049c911e58680c174f0365f13.txt"
+address <- sub("^https", "http", address)
+data <- read.table(url(address), header = TRUE) 
 View(data)
 ```
-Source: https://class.coursera.org/getdata-031/forum/thread?thread_id=28#post-117
+[3] Source: https://class.coursera.org/getdata-031/forum/thread?thread_id=113#post-443
 
 First things first...
 ------
@@ -101,12 +111,6 @@ Finally we just need to write out our data to a file:
 write.table(dfSummarized, "./data/UCI HAR Dataset/tidy_data_set.txt", row.names = FALSE)
 ```
 
-Our data is a (wide) tidy data file because it conforms to Hadley Wickham's definition, that:
-1. Each variable forms a column.
-2. Each observation forms a row.
-3. Each type of observational unit forms a table.
-
-Ref: http://www.jstatsoft.org/v59/i10/paper
 
 
 
