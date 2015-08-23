@@ -50,7 +50,7 @@ dfMerged <- mutate(dfMerged, Activity = V2) %>%
 
 ## The data set already has descriptive variable names by virtue of step 1.
 
-## 5 From the data set in step 4, creates a second, independent tidy data set 
+## 5 From the data set in step 4, create a second, independent tidy data set 
 ##   with the average of each variable for each activity and each subject.
 
 ## use dplyr functions to summarise each column that we want to average (mean/std)

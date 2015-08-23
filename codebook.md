@@ -1,4 +1,8 @@
 # Course Project - code book
+Note: the initial version of the code book format was inspired by David Hood[1].
+
+[1] Source: https://class.coursera.org/getdata-031/forum/thread?thread_id=28#comment-479
+
 ```
 *  Subject 
  Subject - 30 participants, 70% contributing to Training data, 30% to Test data
