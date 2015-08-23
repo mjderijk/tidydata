@@ -17,4 +17,43 @@ Now we're ready to commence the different parts of the project.
 
 1. Merge the training and the test sets to create one data set.
 
-Before we can 
+My interpretation of README.txt as provided indicates that the records are ordered for the provided Subjects data and associated Activity data. The first thing to do then is to add this data for the Training and Test data before we merge the sets.
+
+The data sets however do not have column names. These are located in 'features.txt'. So, we first load these into a data frame `dfFeatures` which we subsequently subset to get the right vector:
+```
+dfFeatures <- read.table("./data/UCI HAR Dataset/features.txt")
+```
+This yields:
+```
+> head(dfFeatures,3)
+  V1                V2
+1  1 tBodyAcc-mean()-X
+2  2 tBodyAcc-mean()-Y
+3  3 tBodyAcc-mean()-Z
+```
+Next, load the training and test sets into two data frames, using `dfFeatures$V2` for the column names:
+```
+dfTrainingSet <- read.table("./data/UCI HAR Dataset/train/X_train.txt", col.names = dfFeatures$V2)
+dfTestSet <- read.table("./data/UCI HAR Dataset/test/X_test.txt", col.names = dfFeatures$V2)
+```
+Now we can add the Subject and Activity data. This is stored in subject.txt and y_train.txt, and correspondingly for test. We'll load these into respective dataframes, setting their column names accordingly:
+```
+dfTrainingSubjects <- read.table("./data/UCI HAR Dataset/train/subject_train.txt", col.names = "Subject")
+dfTrainingActivities <- read.table("./data/UCI HAR Dataset/train/y_train.txt", col.names = "Activity")
+
+dfTestSubjects <- read.table("./data/UCI HAR Dataset/test/subject_test.txt", col.names = "Subject")
+dfTestActivities <- read.table("./data/UCI HAR Dataset/test/y_test.txt", col.names = "Activity")
+```
+Finally, we can `cbind` and `rbind` to combine all the data:
+```
+dfCombinedTrainingSet <- cbind(dfTrainingSubjects, dfTrainingActivities, dfTrainingSet)
+dfCombinedTestSet <- cbind(dfTestSubjects, dfTestActivities, dfTestSet)
+dfCombinedSet <- rbind(dfCombinedTrainingSet, dfCombinedTestSet)
+```
+
+2 Extract only the measurements on the mean and standard deviation for each measurement.
+
+We will use the `dplyr` package for this:
+```
+
+```
