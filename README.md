@@ -5,7 +5,7 @@ Also included is a codebook which describes the data.
 
 To read and view the resultant tidy data set, you can use the following code:
 ```
-data <- read.table(file_path, header = TRUE) #if they used some other way of saving the file than a default write.table, this step will be different
+data <- read.table(file_path, header = TRUE)
 View(data)
 ```
 Source: https://class.coursera.org/getdata-031/forum/thread?thread_id=28#post-117
