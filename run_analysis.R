@@ -1,6 +1,15 @@
 ## You should create one R script run_analysis.R that does the following: 
 
+setwd("Coursera")
+setwd("GettingDataTidy")
+setwd("project")
 ## 1 Merges the training and the test sets to create one data set.
+fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+if(!file.exists("data")) {dir.create("data")}
+download.file(fileUrl,destfile = "./data/getdata-projectfiles-UCI HAR Dataset.zip", mode = "wb")
+unzip(destfile, exdir = "./data/")
+library(dplyr)
+
 
 ## 2 Extracts only the measurements on the mean and standard deviation for each
 ##   measurement. 
