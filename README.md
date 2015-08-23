@@ -113,8 +113,3 @@ Finally we just need to write out our data to a file:
 write.table(dfSummarized, "./data/UCI HAR Dataset/tidy_data_set.txt", row.names = FALSE)
 ```
 
-
-
-
-
-
