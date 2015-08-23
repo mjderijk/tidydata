@@ -1,6 +1,6 @@
 # Getting and Cleaning Data - Course Project
 This repo is for the "Getting and Cleaning Data" course project.
-It includes an R Script to produce a tidy data set, "tidy_data_set.txt".
+It includes an R Script ("run_analysis.R"") which produces a tidy data set ("tidy_data_set.txt").
 Also included is a codebook (codebook.md) which describes the data.
 
 The data is a (wide) tidy data file[1], conforming to Hadley Wickham's definition[2], that:
