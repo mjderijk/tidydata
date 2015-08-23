@@ -10,6 +10,7 @@ The data is a (wide) tidy data file[1], conforming to Hadley Wickham's definitio
 3. Each type of observational unit forms a table.
 
 [1] Source: https://class.coursera.org/getdata-031/forum/thread?thread_id=28#post-117
+
 [2] Source: http://www.jstatsoft.org/v59/i10/paper
 
 To read and view the resultant tidy data set, you can use the following code[3]:
