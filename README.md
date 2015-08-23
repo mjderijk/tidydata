@@ -36,7 +36,7 @@ Next, load the training and test sets into two data frames, using `dfFeatures$V2
 dfTrainingSet <- read.table("./data/UCI HAR Dataset/train/X_train.txt", col.names = dfFeatures$V2)
 dfTestSet <- read.table("./data/UCI HAR Dataset/test/X_test.txt", col.names = dfFeatures$V2)
 ```
-Now we can add the Subject and Activity data. This is stored in subject.txt and y_train.txt, and correspondingly for test. We'll load these into respective dataframes, setting their column names accordingly:
+Now we can add the Subject and Activity data. This is stored in train/subject.txt and train/y_train.txt, and correspondingly for test. We'll load these into respective dataframes, setting their column names accordingly:
 ```
 dfTrainingSubjects <- read.table("./data/UCI HAR Dataset/train/subject_train.txt", col.names = "Subject")
 dfTrainingActivities <- read.table("./data/UCI HAR Dataset/train/y_train.txt", col.names = "Activity")
@@ -51,9 +51,13 @@ dfCombinedTestSet <- cbind(dfTestSubjects, dfTestActivities, dfTestSet)
 dfCombinedSet <- rbind(dfCombinedTrainingSet, dfCombinedTestSet)
 ```
 
-2 Extract only the measurements on the mean and standard deviation for each measurement.
+2. Extract only the measurements on the mean and standard deviation for each measurement.
 
 We will use the `dplyr` package for this:
 ```
-
+library(dplyr)
+dfReduced <- dfCombinedSet %>% select(Subject, Activity, matches("(.mean.)|(.std.)"))
 ```
+This yields a wide data set, and by using `matches("(.mean.)|(.std.)")` we're using a regular expression to match any measurement column which contains either 'mean' or 'std', thus maintaining the relative order in which these columns appeared in the original data sets.
+
+
